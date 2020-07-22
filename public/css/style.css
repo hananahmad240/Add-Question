@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    position: relative;
+}
+
+h1 button {
+    position: absolute;
+    right: 0;
+    transform: translate(120%, -50%);
+}
+
+.btn {
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+.btn-small {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+/* x btn */
+.btn-ghost {
+    border: 0;
+    background-color: transparent;
+}
+
+.clear {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+.cards-container {
+    /* for 3d animation */
+    perspective: 1000px;
+    position: relative;
+    height: 300px;
+    width: 500px;
+    max-width: 100%;
+}
+
+.card {
+    position: absolute;
+    opacity: 0;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    transform: translateX(50%);
+    transform: rotateY(-10deg);
+    transition: transform 0.4s ease,
+        opacity .4s ease;
+}
+
+.card.active {
+    opacity: 1;
+    cursor: pointer;
+    z-index: 10;
+
+    transform: translateX(0);
+    transform: rotateY(0deg);
+}
+
+.card.left {
+    transform: translateX(-50%);
+    transform: rotateY(10deg);
+}
+
+.card.right {
+    transform: translateX(50%);
+    transform: rotateY(-10deg);
+}
+
+
+.card.show-answer .inner-card {
+    transform: rotateX(180deg);
+}
+
+.inner-card {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3),
+        -10px -10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
+.inner-card-front,
+.inner-card-back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.inner-card-front {
+    z-index: 2;
+    transform: rotateX(0deg);
+}
+
+.inner-card-back {
+    /* z-index: 2; */
+    transform: rotateX(180deg);
+}
+
+.inner-card-front::after,
+.inner-card-back::after {
+    /* this is unicode for font awesome */
+    content: '\f021   Flip';
+    font-family: 'Font Awesome 5 Free', Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #666;
+}
+
+.navigation {
+    display: flex;
+    margin: 20px 0;
+}
+
+.nav-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.navigation p {
+    margin: 0 25px;
+}
+
+.add-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid #333;
+    padding: 10px 0;
+
+    z-index: -1;
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.add-container.show {
+    z-index: 1;
+    opacity: 2;
+}
+
+.add-container h1 {
+    margin: 30px 0;
+}
+
+.form-group label {
+    display: block;
+    margin: 20px 0 10px;
+}
+
+.form-group textarea {
+    min-width: 500px;
+    max-width: 100%;
+    border-radius: 3px;
+    font-size: 1rem;
+    padding: 12px;
+    resize: none;
+}

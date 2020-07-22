@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../public/css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+		/>
+		<title>Document</title>
+	</head>
+
+	<body>
+		<button id="clear" class="clear btn">
+			<i class="fas fa-trash">Clear Cards</i>
+		</button>
+
+		<h1>
+			Memory Cards
+			<button id="show" class="btn btn-small">
+				<i class="fas fa-plus">
+					Add New Card
+				</i>
+			</button>
+		</h1>
+
+		<div id="cards-container" class="cards-container">
+			<!-- default class active -->
+
+			<!-- <div class="card active">
+            <div class="inner-card">
+                <div class="inner-card-front">
+                    <p>
+                        What is PHP?
+                    </p>
+                </div>
+                <div class="inner-card-back">
+                    <p>
+                        A Programming Language
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="inner-card">
+                <div class="inner-card-front">
+                    <p>
+                        What is REACT JS?
+                    </p>
+                </div>
+                <div class="inner-card-back">
+                    <p>
+                        A JavaScript FrameWork
+                    </p>
+                </div>
+            </div>
+        </div> -->
+		</div>
+
+		<!-- navigation -->
+
+		<div class="navigation">
+			<button id="prev" class="nav-button">
+				<i class="fas fa-arrow-left"></i>
+			</button>
+			<p id="current"></p>
+			<button id="next" class="nav-button">
+				<i class="fas fa-arrow-right"></i>
+			</button>
+		</div>
+
+		<!-- add container -->
+		<div class="add-container" id="add-container">
+			<h1>
+				Add New Card
+				<button id="hide" class="btn btn-small btn-ghost">
+					<i class="fas fa-times"></i>
+				</button>
+			</h1>
+
+			<div class="form-group">
+				<label for="Question">Question</label>
+				<textarea id="question" placeholder="Entrer question..."></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="Answer">Answer</label>
+				<textarea id="answer" placeholder="Entrer Answer..."></textarea>
+			</div>
+
+			<button id="add-card" class="btn">
+				<i class="fas fa-plus">Add Card</i>
+			</button>
+		</div>
+
+		<script src="../public/js/main.js"></script>
+	</body>
+</html>
